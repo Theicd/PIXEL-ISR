@@ -1,0 +1,241 @@
+/* 
+ * footer.css - סגנונות לפוטר האתר
+ * חלק מפרויקט PIXEL-ISR
+ * כולל אנימציות ואפקטים ויזואליים לפוטר
+ */
+
+.footer {
+    position: relative;
+    background: linear-gradient(90deg, #0f172a, #1e293b, #0f172a);
+    color: #cbd5e1;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    overflow: hidden;
+    border-top: 1px solid rgba(79, 195, 247, 0.3);
+}
+
+/* רקע מונפש לפוטר */
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(79, 195, 247, 0.8) 50%, 
+        transparent 100%);
+    animation: glow-line 4s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(79, 195, 247, 0.8);
+    z-index: 1;
+}
+
+/* אנימציית קו זוהר */
+@keyframes glow-line {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* רשת דיגיטלית */
+.footer-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(79, 195, 247, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 195, 247, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 0;
+}
+
+/* נקודות מונפשות */
+.footer-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgba(79, 195, 247, 0.6);
+    box-shadow: 0 0 5px rgba(79, 195, 247, 0.8);
+    animation: dot-float 10s infinite ease-in-out;
+    z-index: 1;
+}
+
+.footer-dot:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 15s;
+}
+
+.footer-dot:nth-child(2) {
+    top: 50%;
+    left: 30%;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.footer-dot:nth-child(3) {
+    top: 30%;
+    left: 50%;
+    animation-delay: 1s;
+    animation-duration: 18s;
+}
+
+.footer-dot:nth-child(4) {
+    top: 60%;
+    left: 70%;
+    animation-delay: 3s;
+    animation-duration: 14s;
+}
+
+.footer-dot:nth-child(5) {
+    top: 40%;
+    left: 90%;
+    animation-delay: 2.5s;
+    animation-duration: 16s;
+}
+
+/* אנימציית ריחוף נקודות */
+@keyframes dot-float {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.2;
+    }
+    25% {
+        transform: translate(-10px, 10px);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(10px, 15px);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translate(15px, -10px);
+        opacity: 0.8;
+    }
+}
+
+/* לוגו פוטר */
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 10px;
+    height: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* טקסט פוטר */
+.footer p {
+    position: relative;
+    z-index: 2;
+}
+
+/* מד כניסות בסגנון לוח בקרה */
+.visitor-counter {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.9));
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    border-radius: 8px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 174, 239, 0.2);
+    z-index: 3;
+    direction: rtl;
+}
+
+.visitor-counter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(79, 195, 247, 0.05), rgba(0, 174, 239, 0.05));
+    border-radius: 7px;
+    z-index: -1;
+}
+
+.visitor-counter-label {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-left: 8px;
+    font-family: 'Heebo', sans-serif;
+}
+
+.visitor-counter-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4fc3f7;
+    text-shadow: 0 0 5px rgba(79, 195, 247, 0.5);
+    letter-spacing: 1px;
+    position: relative;
+    padding: 0 5px;
+}
+
+.visitor-counter-number::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(135deg, rgba(79, 195, 247, 0.1), rgba(0, 174, 239, 0.1));
+    border-radius: 4px;
+    z-index: -1;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 768px) {
+    .visitor-counter {
+        bottom: 10px;
+        right: 10px;
+        padding: 5px 10px;
+    }
+    
+    .visitor-counter-label {
+        font-size: 0.75rem;
+    }
+    
+    .visitor-counter-number {
+        font-size: 0.9rem;
+    }
+}
+
+/* הדגשת מילים מיוחדות */
+.footer .highlight {
+    color: #4fc3f7;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+/* אפקט זוהר למילים מודגשות */
+.footer .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #4fc3f7, transparent);
+    animation: glow-underline 2s infinite ease-in-out;
+}
+
+@keyframes glow-underline {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}

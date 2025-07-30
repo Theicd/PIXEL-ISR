@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIXEL-ISR - חיפוש מהיר של תמונות וסרטונים</title>
-    <meta name="description" content="PIXEL-ISR - קבל תוצאות מיידיות. חסוך זמן יקר בחיפוש תמונות וסרטונים לכל פרויקט. שימוש חופשי בכפוף לתנאי הרישיון.">
-    <meta name="keywords" content="חיפוש תמונות, ווידיאו, תמונות חינמיות, Pixabay, חיפוש מהיר">
+    <meta name="description" content="מנוע חיפוש מדיה מתקדם - מצא תמונות איכותיות בחינם">
+    <meta name="keywords" content="חיפוש תמונות, תמונות חינם, מאגר תמונות, PIXEL-ISR, תמונות איכותיות">
+    <title>PIXEL-ISR - מנוע חיפוש מדיה מתקדם</title>
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pixel-isr.com/">
+    <meta property="og:title" content="PIXEL-ISR - מנוע חיפוש מדיה מתקדם">
+    <meta property="og:description" content="מצא תמונות איכותיות בחינם עם ממשקי AI מתקדמים">
+    <meta property="og:image" content="https://pixabay.com/get/ga70aecf9818cd95171fe286611814d6a57a89cfe53375f2f9ccd097feacedd1f1323bf8eb6db4677b58140d06728fb6bf3ba068d41db09fba0e1fdbb829b6740_640.jpg">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PIXEL-ISR - מנוע חיפוש מדיה מתקדם">
+    <meta name="twitter:description" content="מצא תמונות איכותיות בחינם עם ממשקי AI מתקדמים">
+    <meta name="twitter:image" content="https://pixabay.com/get/ga70aecf9818cd95171fe286611814d6a57a89cfe53375f2f9ccd097feacedd1f1323bf8eb6db4677b58140d06728fb6bf3ba068d41db09fba0e1fdbb829b6740_640.jpg">
     
     <!-- קישור לקובץ CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="banner.css">
+    <link rel="stylesheet" href="footer.css">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
@@ -30,9 +44,9 @@
         </nav>
         
         <div class="tagline-section">
-            <h2 class="sub-title">חיפוש תמונות וסרטונים</h2>
+            <h2 class="sub-title">תמונות וסרטונים לכל מטרה</h2>
             <p class="tagline">
-                קבל תוצאות מיידיות. חסוך זמן יקר בחיפוש תמונות וסרטונים לכל פרויקט.
+                מחפשים תמונות ל-Canva? וידאו לפרויקט? מצאו בשניות את המדיה המושלמת למצגות, עבודות ואתרים!
             </p>
         </div>
     </header>
@@ -56,7 +70,7 @@
                     <option value="24">24 פריטים</option>
                 </select>
                 
-                <button id="searchBtn" class="search-btn">🚀 חפש תמונות</button>
+                <button id="searchBtn" class="search-btn">🚀 מצא מדיה מושלמת</button>
             </div>
             
             <!-- תרגום נסתר -->
@@ -205,8 +219,8 @@
             <div class="banner-text-container">
                 <p class="banner-text">ממשקים משולבי <span class="ai-text">AI</span> ואתרים מתקדמים</p>
                 <p class="banner-text">הקמת שרתי <span class="ai-text">AI</span> פרטיים ומשחקים פשוטים לעסקים</p>
-                <p class="banner-text">בניית אתרים ודפי נחיתה משוכללים</p>
-                <p class="banner-text">החל מ-199 ש"ח בלבד | ללא עלויות חודשיות</p>
+                <p class="banner-text"><span class="ai-text">בוטים</span> חכמים ואוטומציה לרשתות חברתיות וואטסאפ</p>
+                <p class="banner-text">בניית אתרים ודפי נחיתה משוכללים | החל מ-<span class="ai-text">199</span> ש"ח</p>
             </div>
         </div>
         <div class="banner-cta">
@@ -216,10 +230,24 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 PIXEL-ISR - מנוע חיפוש מדיה מתקדם | כל הזכויות שמורות | תנאי שימוש חופשי בהתאם לרישיון Pixabay</p>
+        <div class="footer-grid"></div>
+        <div class="footer-dot"></div>
+        <div class="footer-dot"></div>
+        <div class="footer-dot"></div>
+        <div class="footer-dot"></div>
+        <div class="footer-dot"></div>
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgNDAiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRmYzNmNyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwYWVlZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjx0ZXh0IHg9IjEwIiB5PSIzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1zaXplPSIyNHB4IiBmaWxsPSJ1cmwoI2dyYWQpIj5QSVhFTC1JU1I8L3RleHQ+PHBhdGggZD0iTTIxMCAxMEwyMzAgMTBMMjEwIDMwTDE5MCAzMEwyMTAgMTBaIiBmaWxsPSIjMDBhZWVmIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=" alt="PIXEL-ISR" class="footer-logo">
+        <p>&copy; 2024 <span class="highlight">PIXEL-ISR</span> - מנוע חיפוש מדיה מתקדם | כל הזכויות שמורות | תנאי שימוש חופשי בהתאם לרישיון Pixabay</p>
+        
+        <!-- מד כניסות -->
+        <div class="visitor-counter">
+            <span class="visitor-counter-label">משתמש מספר:</span>
+            <span class="visitor-counter-number" id="visitorCount">3820</span>
+        </div>
     </footer>
 
-    <!-- קישור לקובץ JavaScript -->
+    <!-- קישור לקבצי JavaScript -->
     <script src="app.js"></script>
+    <script src="visitor-counter.js"></script>
 </body>
 </html>
