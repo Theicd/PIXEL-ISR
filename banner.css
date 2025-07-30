@@ -1,0 +1,311 @@
+/* ===== PIXEL-ISR BANNER STYLES ===== */
+/* קובץ סגנונות נפרד לבאנר הפרסומת - מאפשר עיצוב מקצועי ללא חריגה ממגבלות */
+
+.ad-banner-bottom {
+    background: linear-gradient(135deg, rgba(10, 15, 30, 0.92), rgba(5, 10, 20, 0.95));
+    border-top: 2px solid rgba(0, 174, 239, 0.6);
+    border-bottom: 2px solid rgba(0, 174, 239, 0.6);
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* רקע דינמי */
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.light-beam {
+    position: absolute;
+    width: 150%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 174, 239, 0.1) 20%, 
+        rgba(0, 174, 239, 0.5) 50%,
+        rgba(0, 174, 239, 0.1) 80%,
+        transparent 100%);
+    box-shadow: 0 0 15px 3px rgba(0, 174, 239, 0.5);
+    animation: beam-move 8s linear infinite;
+    opacity: 0;
+}
+
+.light-beam:nth-child(1) {
+    top: 20%;
+    animation-delay: 0s;
+    transform: rotate(5deg);
+}
+
+.light-beam:nth-child(2) {
+    top: 40%;
+    animation-delay: 2s;
+    transform: rotate(-2deg);
+}
+
+.light-beam:nth-child(3) {
+    top: 60%;
+    animation-delay: 4s;
+    transform: rotate(3deg);
+}
+
+.light-beam:nth-child(4) {
+    top: 80%;
+    animation-delay: 6s;
+    transform: rotate(-4deg);
+}
+
+@keyframes beam-move {
+    0% {
+        transform: translateX(-100%) rotate(var(--rotation, 0deg));
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%) rotate(var(--rotation, 0deg));
+        opacity: 0;
+    }
+}
+
+/* אפקט פרטיקלים */
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(0, 174, 239, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgba(0, 174, 239, 0.5);
+    animation: float-up 10s linear infinite;
+    opacity: 0;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 6s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 1s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 3s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 5s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 0.5s; }
+
+@keyframes float-up {
+    0% {
+        bottom: -10px;
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.8);
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: scale(0.2);
+    }
+}
+
+/* תוכן הבאנר */
+.banner-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: right;
+    padding-right: 20px;
+    z-index: 2;
+}
+
+.banner-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #00aeef;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 10px rgba(0, 174, 239, 0.8);
+    position: relative;
+    display: inline-block;
+}
+
+/* אפקט הבהוב למילה AI */
+.banner-title span.ai-text,
+.banner-text span.ai-text {
+    animation: ai-glow 2s ease-in-out infinite alternate;
+    font-weight: 900;
+    color: #00e5ff;
+}
+
+@keyframes ai-glow {
+    0% { text-shadow: 0 0 10px rgba(0, 174, 239, 0.8); }
+    100% { text-shadow: 0 0 20px rgba(0, 174, 239, 1), 0 0 30px rgba(0, 255, 255, 0.8); }
+}
+
+.banner-title:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 174, 239, 0.8), #00aeef);
+    animation: line-grow 3s ease-out forwards;
+}
+
+@keyframes line-grow {
+    to { width: 100%; }
+}
+
+.banner-text-container {
+    height: 24px;
+    overflow: hidden;
+    position: relative;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.banner-text {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Heebo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: text-cycle 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.banner-text:nth-child(1) { animation-delay: 0s; }
+.banner-text:nth-child(2) { animation-delay: 3s; }
+.banner-text:nth-child(3) { animation-delay: 6s; }
+.banner-text:nth-child(4) { 
+    animation-delay: 9s;
+    color: #00aeef;
+    font-weight: 700;
+}
+
+@keyframes text-cycle {
+    0%, 5% {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(5px);
+    }
+    10%, 25% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+    30%, 35% {
+        opacity: 0;
+        transform: translateY(-20px);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* כפתור קריאה לפעולה */
+.banner-cta {
+    flex: 0 0 auto;
+    z-index: 2;
+}
+
+.contact-btn {
+    background: rgba(0, 174, 239, 0.2);
+    color: #fff;
+    border: 1px solid rgba(0, 174, 239, 0.6);
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.contact-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent);
+    transition: all 0.6s ease;
+}
+
+.contact-btn:hover {
+    background: rgba(0, 174, 239, 0.4);
+    box-shadow: 0 0 15px rgba(0, 174, 239, 0.5);
+    transform: translateY(-2px);
+}
+
+.contact-btn:hover:before {
+    left: 100%;
+}
+
+/* התאמה למובייל */
+@media (max-width: 768px) {
+    .ad-banner-bottom {
+        flex-direction: column;
+        padding: 15px 10px;
+        text-align: center;
+    }
+    
+    .banner-content {
+        align-items: center;
+        text-align: center;
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .banner-title {
+        font-size: 1.5rem;
+    }
+    
+    .banner-text-container {
+        text-align: center;
+    }
+    
+    .banner-text {
+        right: auto;
+        text-align: center;
+    }
+    
+    .contact-btn {
+        padding: 8px 16px;
+    }
+}

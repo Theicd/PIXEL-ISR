@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL-ISR - חיפוש מהיר של תמונות וסרטונים</title>
+    <meta name="description" content="PIXEL-ISR - קבל תוצאות מיידיות. חסוך זמן יקר בחיפוש תמונות וסרטונים לכל פרויקט. שימוש חופשי בכפוף לתנאי הרישיון.">
+    <meta name="keywords" content="חיפוש תמונות, ווידיאו, תמונות חינמיות, Pixabay, חיפוש מהיר">
+    
+    <!-- קישור לקובץ CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="banner.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+<body>
+    <!-- רקע עתידני -->
+    <div id="futuristicBg"></div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="nav-bar">
+            <div class="logo">PIXEL-ISR</div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="openModal('featuresModal')">תכונות ייחודיות</button>
+                <button class="nav-btn" onclick="openModal('howToModal')">איך להשתמש</button>
+            </div>
+        </nav>
+        
+        <div class="tagline-section">
+            <h2 class="sub-title">חיפוש תמונות וסרטונים</h2>
+            <p class="tagline">
+                קבל תוצאות מיידיות. חסוך זמן יקר בחיפוש תמונות וסרטונים לכל פרויקט.
+            </p>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <main class="search-container">
+        <div class="search-box">
+            <div class="search-row">
+                <input type="text" id="searchInput" class="search-input" placeholder="הכנס מילות חיפוש בעברית...">
+                
+                <select id="mediaType" class="media-type-select">
+                    <option value="photo">📷 תמונות</option>
+                    <option value="video">🎥 ווידיאו</option>
+                </select>
+                
+                <select id="itemCount" class="item-count-select">
+                    <option value="6">6 פריטים</option>
+                    <option value="9">9 פריטים</option>
+                    <option value="12">12 פריטים</option>
+                    <option value="18">18 פריטים</option>
+                    <option value="24">24 פריטים</option>
+                </select>
+                
+                <button id="searchBtn" class="search-btn">🚀 חפש תמונות</button>
+            </div>
+            
+            <!-- תרגום נסתר -->
+            <div id="hiddenTranslation" style="display: none;"></div>
+        </div>
+    </main>
+
+    <!-- Results Section -->
+    <section class="results-container">
+        <div id="resultsGrid" class="results-grid"></div>
+    </section>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="loading-modal">
+        <div class="loading-content">
+            <h2 id="loadingTitle" class="loading-title">🚀 מחפש תמונות...</h2>
+            
+            <div class="loading-steps">
+                <div class="loading-step">🔍 מנתח את בקשת החיפוש...</div>
+                <div class="loading-step">🌐 מחפש תמונות ב-Pixabay...</div>
+                <div class="loading-step">📊 מעבד את התוצאות...</div>
+                <div class="loading-step">✨ מציג את התמונות...</div>
+            </div>
+            
+            <div class="loading-bar">
+                <div id="loadingProgress" class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Modal -->
+    <div id="featuresModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">תכונות ייחודיות</h2>
+                <button class="close-btn" onclick="closeModal('featuresModal')">&times;</button>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">חיפוש בעברית</h3>
+                    <p class="feature-desc">חפש בעברית וקבל תוצאות מדויקות ממקורות בינלאומיים</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">תוצאות מדויקות</h3>
+                    <p class="feature-desc">אלגוריתם חכם המבצע תרגום אוטומטי ומחזיר תוצאות רלוונטיות</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">שיתוף קל</h3>
+                    <p class="feature-desc">שתף תמונות ישירות לוואטסאפ או העתק קישורים בקלות</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">מהירות גבוהה</h3>
+                    <p class="feature-desc">חיפוש מהיר עם תצוגת תוצאות מיידית ואנימציות חלקות</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">מגוון מדיה</h3>
+                    <p class="feature-desc">תמונות ווידיאו באיכות גבוהה - הכל במקום אחד</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <h3 class="feature-title">שימוש חופשי</h3>
+                    <p class="feature-desc">כל המדיה מגיעה עם רישיון שימוש חופשי מ-Pixabay</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How To Use Modal -->
+    <div id="howToModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">איך להשתמש במערכת</h2>
+                <button class="close-btn" onclick="closeModal('howToModal')">&times;</button>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1️⃣</div>
+                    <h3 class="step-title">הכנס מילות חיפוש</h3>
+                    <p class="feature-desc">כתב בעברית את מה שאתה מחפש - למשל "חתול", "נוף יפה", "רכב ספורט"</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2️⃣</div>
+                    <h3 class="step-title">בחר סוג מדיה</h3>
+                    <p class="feature-desc">בחר האם אתה מחפש תמונות, ווידיאו, גיפים או קולות רקע</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3️⃣</div>
+                    <h3 class="step-title">קבע כמות תוצאות</h3>
+                    <p class="feature-desc">בחר כמה פריטים תרצה לראות (6-24 פריטים)</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4️⃣</div>
+                    <h3 class="step-title">לחץ חפש</h3>
+                    <p class="feature-desc">לחץ על כפתור החיפוש והמתן לתוצאות</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">5️⃣</div>
+                    <h3 class="step-title">הורד ושתף</h3>
+                    <p class="feature-desc">לחץ על התמונה להגדלה, הורד אותה או שתף בוואטסאפ</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">6️⃣</div>
+                    <h3 class="step-title">בדוק רישיון</h3>
+                    <p class="feature-desc">לחץ על פרטי הרישיון כדי לראות את תנאי השימוש</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- באנר פרסומת קבוע -->
+    <div class="ad-banner-bottom">
+        <div class="banner-bg">
+            <div class="light-beam"></div>
+            <div class="light-beam"></div>
+            <div class="light-beam"></div>
+            <div class="light-beam"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="banner-content">
+            <h3 class="banner-title">פתרונות <span class="ai-text">AI</span> ופיתוח מתקדם</h3>
+            <div class="banner-text-container">
+                <p class="banner-text">ממשקים משולבי <span class="ai-text">AI</span> ואתרים מתקדמים</p>
+                <p class="banner-text">הקמת שרתי <span class="ai-text">AI</span> פרטיים ומשחקים פשוטים לעסקים</p>
+                <p class="banner-text">בניית אתרים ודפי נחיתה משוכללים</p>
+                <p class="banner-text">החל מ-199 ש"ח בלבד | ללא עלויות חודשיות</p>
+            </div>
+        </div>
+        <div class="banner-cta">
+            <a href="#contact" class="contact-btn">התייעץ חינם</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 PIXEL-ISR - מנוע חיפוש מדיה מתקדם | כל הזכויות שמורות | תנאי שימוש חופשי בהתאם לרישיון Pixabay</p>
+    </footer>
+
+    <!-- קישור לקובץ JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
