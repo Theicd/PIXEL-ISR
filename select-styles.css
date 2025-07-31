@@ -1,0 +1,70 @@
+/**
+ * select-styles.css
+ * עיצוב חלונות בחירה (select) בסגנון הממשק
+ */
+
+/* עיצוב חלונות הבחירה הנפתחים */
+select {
+    /* מראה חיצוני של תיבת הבחירה */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%234fc3f7' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 35px !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* עיצוב חלון הבחירה הנפתח */
+select:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+    border-color: rgba(79, 195, 247, 0.8) !important;
+}
+
+/* עיצוב האפשרויות בתפריט הנפתח */
+select option {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    padding: 12px !important;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+}
+
+/* אנימציה בעת מעבר עכבר על אפשרויות */
+select option:hover {
+    background-color: rgba(79, 195, 247, 0.2) !important;
+}
+
+/* עיצוב האפשרות הנבחרת */
+select option:checked {
+    background-color: rgba(79, 195, 247, 0.3) !important;
+    color: #4fc3f7 !important;
+}
+
+/* תיקון עבור דפדפנים שונים */
+@-moz-document url-prefix() {
+    select {
+        background-image: url("data:image/svg+xml;utf8,<svg fill='%234fc3f7' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+        background-position: right 10px center;
+    }
+}
+
+/* תיקון עבור Safari */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        select {
+            background-image: url("data:image/svg+xml;utf8,<svg fill='%234fc3f7' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-position: right 10px center;
+        }
+    }
+}
+
+/* הקטנת גודל תיבות הבחירה */
+.media-type-select,
+.item-count-select {
+    min-width: 110px !important;
+    padding: 14px 35px 14px 15px !important;
+}
