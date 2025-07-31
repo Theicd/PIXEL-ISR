@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== APP INITIALIZATION =====
 function initializeApp() {
+    // מחיקת זיכרון הדפדפן בעת טעינת האתר
+    clearBrowserCache();
+    
     // עדכון טקסט כפתור החיפוש בהתאם לבחירה
     const mediaTypeSelect = document.getElementById('mediaType');
     const searchBtn = document.getElementById('searchBtn');
@@ -51,6 +54,26 @@ function initializeApp() {
     
     // עדכון טקסט ראשוני
     updateSearchButtonText();
+}
+
+// פונקציה למחיקת זיכרון הדפדפן
+function clearBrowserCache() {
+    // מחיקת כל ה-localStorage
+    localStorage.clear();
+    
+    // מחיקת כל ה-sessionStorage
+    sessionStorage.clear();
+    
+    // מחיקת עוגיות
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    }
+    
+    console.log("נמחק זיכרון הדפדפן");
 }
 
 // ===== FUTURISTIC BACKGROUND =====
