@@ -201,9 +201,17 @@
 /* התאמה למסכים קטנים */
 @media (max-width: 768px) {
     .visitor-counter {
-        bottom: 10px;
-        right: 10px;
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: 15px auto 5px auto;
         padding: 5px 10px;
+        width: fit-content;
+    }
+    
+    .footer p {
+        margin-bottom: 50px;
+        padding: 0 10px;
     }
     
     .visitor-counter-label {

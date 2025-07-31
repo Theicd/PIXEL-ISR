@@ -386,9 +386,14 @@ function createImageCard(item) {
 }
 
 function createVideoCard(item) {
+    // וידוא שיש URL תקין לוידאו ולתמונה ממוזערת
+    const videoUrl = item.url || '#';
+    // שימוש בתמונה ממוזערת מקומית אם אין תמונה חיצונית
+    const thumbnailUrl = item.thumbnail || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUyOTNiIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZpbGw9IiM0ZmMzZjciPlZpZGVvPC90ZXh0Pjwvc3ZnPg==';
+    
     return `
         <div class="video-container">
-            <video src="${item.url}" controls poster="${item.thumbnail}" preload="metadata">
+            <video src="${videoUrl}" controls poster="${thumbnailUrl}" preload="metadata" playsinline>
                 הדפדפן שלך לא תומך בנגן וידיאו.
             </video>
             ${item.duration ? `<div class="video-duration">${formatDuration(item.duration)}</div>` : ''}
@@ -397,10 +402,10 @@ function createVideoCard(item) {
             <div class="image-source">מקור: ${item.source}</div>
             <div class="image-license" onclick="window.open('${item.licenseUrl}', '_blank')">${item.license}</div>
             <div class="image-actions">
-                <button class="action-btn" onclick="downloadImage('${item.downloadUrl}', 'video.mp4')">📥 הורד</button>
-                <button class="action-btn" onclick="shareWhatsApp('${item.url}')">📱 וואטסאפ</button>
-                <button class="action-btn" onclick="copyToClipboard('${item.url}')">📋 העתק קישור</button>
-                <button class="action-btn" onclick="window.open('${item.licenseUrl}', '_blank')">🔗 צפה במקור</button>
+                <button class="action-btn" onclick="downloadImage('${item.downloadUrl || '#'}', 'video.mp4')">📥 הורד</button>
+                <button class="action-btn" onclick="shareWhatsApp('${videoUrl}')">📱 וואטסאפ</button>
+                <button class="action-btn" onclick="copyToClipboard('${videoUrl}')">📋 העתק קישור</button>
+                <button class="action-btn" onclick="window.open('${item.licenseUrl || '#'}', '_blank')">🔗 צפה במקור</button>
             </div>
         </div>
     `;
