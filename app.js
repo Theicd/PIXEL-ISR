@@ -17,16 +17,35 @@ function initializeApp() {
     // עדכון טקסט כפתור החיפוש בהתאם לבחירה
     const mediaTypeSelect = document.getElementById('mediaType');
     const searchBtn = document.getElementById('searchBtn');
+    const searchInput = document.getElementById('searchInput');
     
     mediaTypeSelect.addEventListener('change', function() {
         updateSearchButtonText();
     });
     
     // הוספת event listeners
-    document.getElementById('searchBtn').addEventListener('click', startSearch);
-    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    searchBtn.addEventListener('click', startSearch);
+    searchInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             startSearch();
+        }
+    });
+    
+    // גלילה אוטומטית כשהמקלדת נפתחת במובייל
+    searchInput.addEventListener('focus', function() {
+        // בדיקה אם זה מכשיר נייד
+        if (window.innerWidth <= 768) {
+            // המתנה קצרה לפתיחת המקלדת
+            setTimeout(function() {
+                // גלילה של 200px למטה
+                window.scrollBy({
+                    top: 200,
+                    behavior: 'smooth'
+                });
+                
+                // וידוא שכפתור החיפוש גלוי
+                searchBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
         }
     });
     
