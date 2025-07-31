@@ -106,9 +106,17 @@ body {
 
 .tagline-section {
     text-align: center;
-    padding: 30px 20px;
-    background: linear-gradient(135deg, rgba(79, 195, 247, 0.05), rgba(0, 180, 216, 0.05));
-    border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+    padding: 20px 20px 10px;
+    margin-bottom: 30px;
+    direction: rtl;
+}
+
+.sub-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4fc3f7;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
 }
 
 .tagline {
@@ -123,7 +131,7 @@ body {
 /* ===== SEARCH SECTION ===== */
 .search-container {
     max-width: 1000px;
-    margin: 50px auto;
+    margin: 30px auto;
     padding: 0 20px;
 }
 
